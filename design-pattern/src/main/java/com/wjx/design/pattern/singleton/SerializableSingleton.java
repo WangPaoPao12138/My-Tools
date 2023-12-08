@@ -54,22 +54,18 @@ public class SerializableSingleton implements Serializable {
         public static void main(String[] args) {
             SerializableSingleton singleton = SerializableSingleton.getSingleton();
             File file = new File("SerializableSingleton.txt");
-            try {
-                FileOutputStream fos = new FileOutputStream(file);
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
+            try (FileOutputStream fos = new FileOutputStream(file);
+                 ObjectOutputStream oos = new ObjectOutputStream(fos);
+            ) {
                 oos.writeObject(singleton);
-                fos.close();
-                oos.close();
                 System.out.println(singleton.hashCode());
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            try {
-                FileInputStream fis = new FileInputStream(file);
-                ObjectInputStream ois = new ObjectInputStream(fis);
+            try (FileInputStream fis = new FileInputStream(file);
+                 ObjectInputStream ois = new ObjectInputStream(fis);
+            ) {
                 SerializableSingleton rSingleton = (SerializableSingleton) ois.readObject();
-                fis.close();
-                ois.close();
                 System.out.println(rSingleton.hashCode());
             } catch (Exception e) {
                 e.printStackTrace();
