@@ -1,6 +1,5 @@
 package com.wjx.design.pattern.singleton;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -22,9 +21,7 @@ public class SingletonManager {
     }
 
     public static void registerService(String key, Object instance) {
-        if (!objMap.containsKey(key)) {
-            objMap.put(key, instance);
-        }
+        objMap.computeIfAbsent(key, value -> instance);
     }
 
     public static Object getService(String key) {

@@ -15,7 +15,7 @@ package com.wjx.design.pattern.singleton;
 public class LanHanStaticInnerClass {
     //内部类
     private static class InnerClass {
-        private static LanHanStaticInnerClass singleton = new LanHanStaticInnerClass();
+        private static final LanHanStaticInnerClass singleton = new LanHanStaticInnerClass();
     }
 
     private LanHanStaticInnerClass() {
