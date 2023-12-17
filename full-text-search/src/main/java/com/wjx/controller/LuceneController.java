@@ -72,6 +72,10 @@ public class LuceneController {
             builder.add(classId, BooleanClause.Occur.SHOULD);
             builder.add(courseId, BooleanClause.Occur.SHOULD);
             BooleanQuery query = builder.build();
+            /**
+             * 这里可以做分页
+             * https://blog.csdn.net/yelllowcong/article/details/78698516
+             */
             TopDocs topDocs = searcher.search(query, Integer.MAX_VALUE);
             ScoreDoc[] scoreDocs = topDocs.scoreDocs;
             System.out.println("lucene 开始处理 doc 数据" + (System.currentTimeMillis() - l));

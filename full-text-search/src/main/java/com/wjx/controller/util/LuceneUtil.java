@@ -5,9 +5,7 @@ import com.wjx.mapper.StudentInfoMapper;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.ngram.NGramTokenizer;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
@@ -66,12 +64,12 @@ public class LuceneUtil {
         for (StudentInfo studentInfo : studentInfos) {
             //创建document对象
             Document document = new Document();
-            document.add(new TextField("id", String.valueOf(studentInfo.getId()), Field.Store.YES));
+            document.add(new StoredField("id", String.valueOf(studentInfo.getId())));
             document.add(new TextField("studentId", String.valueOf(studentInfo.getStudentId()), Field.Store.YES));
             document.add(new TextField("classId", String.valueOf(studentInfo.getClassId()), Field.Store.YES));
             document.add(new TextField("courseId", String.valueOf(studentInfo.getCourseId()), Field.Store.YES));
             document.add(new TextField("name", String.valueOf(studentInfo.getName()), Field.Store.YES));
-            document.add(new TextField("createTime", String.valueOf(studentInfo.getCreateTime()), Field.Store.YES));
+            document.add(new StoredField("createTime", String.valueOf(studentInfo.getCreateTime())));
             docs.add(document);
         }
         //创建索引，并写入索引库
