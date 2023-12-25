@@ -38,6 +38,22 @@ public class ThreadPoolUtil {
         );
     }
 
+    /**
+     * - 设置核心池大小
+     * @param corePoolSize
+     */
+    public void setCorePoolSize(int corePoolSize) {
+        executor.setCorePoolSize(corePoolSize);
+    }
+
+    /**
+     * - 设置线程池最大能创建的线程数目大小
+     * @param maximumPoolSize
+     */
+    public void setMaximumPoolSize(int maximumPoolSize) {
+        executor.setMaximumPoolSize(maximumPoolSize);
+    }
+
     public static <T> Future<T> submit(Callable<T> task) {
         return executor.submit(task);
     }
