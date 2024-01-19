@@ -19,6 +19,7 @@
         <module>algorithm</module>
         <module>design-pattern</module>
         <module>full-text-search</module>
+        <module>bug-test</module>
         <module>spring-expansion-point</module>
     </modules>
 
