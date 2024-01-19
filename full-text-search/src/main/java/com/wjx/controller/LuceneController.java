@@ -47,7 +47,7 @@ public class LuceneController {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @GetMapping("test")
-    public List<StudentInfo> getFromLucene(String key) {
+    public List<StudentInfo> getFromLucene(@RequestParam("key") String key, @RequestParam("pageNo") Integer pageNow, @RequestParam("pageSize") Integer pageSize) {
         long l = System.currentTimeMillis();
         List<StudentInfo> studentInfos = new ArrayList<>();
         try {
@@ -75,8 +75,18 @@ public class LuceneController {
             /**
              * 这里可以做分页
              * https://blog.csdn.net/yelllowcong/article/details/78698516
+             * https://blog.csdn.net/wo_shi_ltb/article/details/79861306
              */
-            TopDocs topDocs = searcher.search(query, Integer.MAX_VALUE);
+            int start = (pageNow - 1) * pageSize;
+            TopDocs topDocs;
+            if (start==0){
+                topDocs = searcher.search(query, pageSize);
+            }else {
+                topDocs = searcher.search(query, start);
+                ScoreDoc preScore = topDocs.scoreDocs[start - 1];
+                topDocs = start == 0 ? searcher.search(query, pageSize) : searcher.searchAfter(preScore, query, pageSize);
+            }
+
             ScoreDoc[] scoreDocs = topDocs.scoreDocs;
             System.out.println("lucene 开始处理 doc 数据" + (System.currentTimeMillis() - l));
             for (ScoreDoc scoreDoc : scoreDocs) {
