@@ -1,6 +1,6 @@
-package com.wjx.mapper;
+package com.wjx.lucene.mapper;
 
-import com.wjx.dao.StudentInfo;
+import com.wjx.lucene.dao.StudentInfo;
 
 import java.util.List;
 

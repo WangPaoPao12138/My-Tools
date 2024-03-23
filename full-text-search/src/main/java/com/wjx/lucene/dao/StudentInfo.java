@@ -1,4 +1,4 @@
-package com.wjx.dao;
+package com.wjx.lucene.dao;
 
 import java.util.Date;
 

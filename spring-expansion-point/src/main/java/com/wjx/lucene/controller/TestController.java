@@ -1,4 +1,4 @@
-package com.wjx.controller;
+package com.wjx.lucene.controller;
 
 import com.wjx.service.MyEventPublisherService;
 import org.springframework.web.bind.annotation.RequestMapping;

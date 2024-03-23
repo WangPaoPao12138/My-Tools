@@ -1,7 +1,7 @@
-package com.wjx.controller.util;
+package com.wjx.lucene.controller.util;
 
-import com.wjx.dao.StudentInfo;
-import com.wjx.mapper.StudentInfoMapper;
+import com.wjx.lucene.dao.StudentInfo;
+import com.wjx.lucene.mapper.StudentInfoMapper;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.ngram.NGramTokenizer;

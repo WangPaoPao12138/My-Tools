@@ -1,8 +1,8 @@
-package com.wjx.controller;
+package com.wjx.lucene.controller;
 
-import com.wjx.controller.util.LuceneUtil;
-import com.wjx.dao.StudentInfo;
-import com.wjx.mapper.StudentInfoMapper;
+import com.wjx.lucene.controller.util.LuceneUtil;
+import com.wjx.lucene.dao.StudentInfo;
+import com.wjx.lucene.mapper.StudentInfoMapper;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;

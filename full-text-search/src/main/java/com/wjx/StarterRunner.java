@@ -1,6 +1,6 @@
 package com.wjx;
 
-import com.wjx.controller.util.LuceneUtil;
+import com.wjx.lucene.controller.util.LuceneUtil;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;

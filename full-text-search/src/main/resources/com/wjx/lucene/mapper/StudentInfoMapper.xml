@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wjx.mapper.StudentInfoMapper">
-    <select id="selectLike" resultType="com.wjx.dao.StudentInfo">
+<mapper namespace="com.wjx.lucene.mapper.StudentInfoMapper">
+    <select id="selectLike" resultType="com.wjx.lucene.dao.StudentInfo">
         SELECT *
         FROM student_info
         WHERE `name` LIKE CONCAT('%', #{key}, '%')
            OR course_id LIKE CONCAT('%', #{key}, '%')
            OR class_id LIKE CONCAT('%', #{key}, '%')
     </select>
-    <select id="selectAll" resultType="com.wjx.dao.StudentInfo">
+    <select id="selectAll" resultType="com.wjx.lucene.dao.StudentInfo">
         SELECT *
         FROM student_info
     </select>

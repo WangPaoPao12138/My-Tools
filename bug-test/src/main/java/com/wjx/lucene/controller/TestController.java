@@ -1,4 +1,4 @@
-package com.wjx.controller;
+package com.wjx.lucene.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
